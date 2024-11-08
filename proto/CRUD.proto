@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+service CRUD {
+    rpc Create(UserMessage) returns (ID) {}
+    rpc Read(ID) returns (UserMessage) {}
+    rpc Update(UserMessage) returns (ID) {}
+    rpc Delete(ID) returns (ID) {}
+}
+
+message UserMessage {
+    uint32 Id = 1;
+    string Name = 2;
+    uint32 Age = 3;
+    string Email = 4;
+}
+message ID {
+    uint32 Id = 1;
+}
